@@ -12,7 +12,6 @@ import 'home_page_hader.dart';
 import 'offer_horizontal_list_view.dart';
 
 class MyHomePage extends StatelessWidget {
-  int dropDownValue = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +59,6 @@ class MyHomePage extends StatelessWidget {
                 allResturentAndMenu(),
                 SizedBox(height: 20),
                 AllResturents(),
-                SizedBox(height: 100),
               ],
             ),
           ),

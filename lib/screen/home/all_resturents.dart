@@ -3,10 +3,10 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class AllResturents extends StatelessWidget {
   List<Map<String, String>>? imageData = [
-    {'image': 'assets/images/macdonals.jpg', 'offer': '30% off'},
-    {'image': 'assets/images/Starbucks.jpg', 'offer': '30% off'},
+    {'image': 'assets/images/macdonals.jpg', 'offer': ''},
+    {'image': 'assets/images/Starbucks.jpg', 'offer': ''},
     {'image': 'assets/images/dominos.jpg', 'offer': '30% off'},
-    {'image': 'assets/images/dominos.jpg', 'offer': ''},
+    {'image': 'assets/images/dominos.jpg', 'offer': '30% off'},
   ];
 
   @override
@@ -33,27 +33,27 @@ class AllResturents extends StatelessWidget {
                             ),
                           ),
                         ),
-                        // imageData!.isEmpty
-                        //     ? Container()
-                        //     : Positioned(
-                        //         top: 20,
-                        //         child: Container(
-                        //           height: 30,
-                        //           width: 60,
-                        //           decoration: BoxDecoration(
-                        //             color: Color(0xFF00CE47),
-                        //             borderRadius: BorderRadius.only(
-                        //               topRight: Radius.circular(10),
-                        //               bottomRight: Radius.circular(10),
-                        //             ),
-                        //           ),
-                        //           child: Center(
-                        //               child: Text(
-                        //             imageData![index]['offer'].toString(),
-                        //             style: TextStyle(color: Colors.white),
-                        //           )),
-                        //         ),
-                        //       )
+                        imageData![index]['offer'].toString() == ''
+                            ? Container()
+                            : Positioned(
+                                top: 20,
+                                child: Container(
+                                  height: 30,
+                                  width: 60,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF00CE47),
+                                    borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(10),
+                                      bottomRight: Radius.circular(10),
+                                    ),
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    imageData![index]['offer'].toString(),
+                                    style: TextStyle(color: Colors.white),
+                                  )),
+                                ),
+                              )
                       ],
                     ),
                     SizedBox(width: 10),

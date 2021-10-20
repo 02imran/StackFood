@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class PopularFoodNearby extends StatelessWidget {
-  List<Map<String, String>> offerData = [
+  List<Map<String, String>>? offerData = [
     {'text': '30% off'},
-    {'text': '60% off'}
+    {'text': ''}
   ];
 
   @override
@@ -13,7 +13,7 @@ class PopularFoodNearby extends StatelessWidget {
       height: 140,
       width: 400,
       child: ListView.builder(
-          itemCount: offerData.length,
+          itemCount: offerData!.length,
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemBuilder: (_, index) => Stack(
@@ -123,26 +123,25 @@ class PopularFoodNearby extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 60,
-                    child: offerData[index].isNotEmpty
-                        ? Container(
-                            height: 30,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF00CE47),
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
+                      bottom: 60,
+                      child: offerData![index]['text'].toString() == ''
+                          ? Container()
+                          : Container(
+                              height: 30,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF00CE47),
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  bottomRight: Radius.circular(10),
+                                ),
                               ),
-                            ),
-                            child: Center(
-                                child: Text(
-                              offerData[index]['text'].toString(),
-                              style: TextStyle(color: Colors.white),
-                            )),
-                          )
-                        : Container(),
-                  )
+                              child: Center(
+                                  child: Text(
+                                offerData![index]['text'].toString(),
+                                style: TextStyle(color: Colors.white),
+                              )),
+                            ))
                 ],
               )),
     );
